@@ -1,26 +1,39 @@
 // ./src/components/Home.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../assets/App.css';
 import Header from './Header';
-// import Footer from './Footer'; // You can re-enable Footer if needed
 import background from '../assets/background.mp4';
 import GrainOverlay from './GrainOverlay';
 
 const Home = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const videoElement = document.querySelector('video');
+    if (videoElement) {
+      videoElement.onloadeddata = () => {
+        setLoading(false);
+      };
+    }
+  }, []);
+
   return (
-    <div className="home">
+    <div className={`home ${loading ? 'loading' : 'loaded'}`}>
+      {loading}
       <video className='videoTag' autoPlay loop muted>
         <source src={background} type='video/mp4' />
       </video>
-      <GrainOverlay />
-      <div></div>
-      <Header />
-      <div className="content">
-        <div className="maintenance">
-          This webpage is in maintenance
-        </div>
-      </div>
-      {/* <Footer /> */}
+      {!loading && (
+        <>
+          <GrainOverlay />
+          <Header />
+          <div className="content">
+            <div className="maintenance">
+              This webpage is in maintenance
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
