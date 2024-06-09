@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import '../assets/NavBar.css';
+import '../assets/styles/NavBar.css';
 
 function Navbar() {
   const [active, setActive] = useState("nav__menu");
   const [icon, setIcon] = useState("nav__toggler");
   const navToggle = () => {
     if (active === "nav__menu") {
+
+      // setting the nav to active with grain overlay
       setActive("nav__menu nav__active");
     } else setActive("nav__menu");
 
@@ -15,6 +17,7 @@ function Navbar() {
     } else setIcon("nav__toggler");
   };
   return (
+    
     <nav className="nav">
       <a href='/' className="home__icon">✦</a>
       <ul className={active}>

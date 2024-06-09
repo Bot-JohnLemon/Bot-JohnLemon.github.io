@@ -1,6 +1,6 @@
 // GrainOverlay.js
 import React from 'react';
-import '../assets/App.css';
+import '../assets/styles/App.css';
 
 const GrainOverlay = () => {
   return <div className="grain-overlay"></div>;

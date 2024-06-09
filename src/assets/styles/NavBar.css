@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Akira Expanded';
+  src: url('../fonts/Akira\ Expanded\ Demo.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 html {
   font-size: 62.5%;
@@ -17,8 +23,11 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-left: 7.5%;
+  margin-right: 7.5%;
   height: 8vh;
   z-index: 4;
+  font-family: Akira Expanded;
 }
 
 .nav__menu {
@@ -44,7 +53,6 @@ a {
     font-size: 3rem;
     color: white;
     text-decoration: none;
-    margin-left: 7.5%;
 }
 
 @media screen and (max-width: 768px) {
@@ -59,18 +67,24 @@ a {
     height: 100%;
     width: 100%;
     padding: 0%;
-    background: rgba(255, 255, 255, 0.1);
+    background: #000;
+    
     flex-direction: column;
     transform: translateX(100%);
     transition: 0.5s ease-in;
-
+    margin: 0px;
     justify-content: center;
     gap: 20rem;
-
+    overflow: hidden;
+    background: url('../imgs/grain-dark.gif') repeat center center;
   }
-
-
 }
+
+.nav__menu > * {
+  position: relative;
+  z-index: 1;
+}
+
 /* Active Class */
 .nav__active {
   transform: translateX(0%);
