@@ -20,7 +20,7 @@ const Home = () => {
   return (
     <div className={`home ${loading ? 'loading' : 'loaded'}`}>
       {loading}
-      <video className='videoTag' autoPlay loop muted>
+      <video className='videoTag' autoPlay loop muted playsinline>
         <source src={background} type='video/mp4' />
       </video>
       {!loading && (
